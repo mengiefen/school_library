@@ -1,6 +1,6 @@
 class Nameable
   def correct_name
-    raise NotImplementedError.new("#{self.class} the name should be nameable '#{__method__}'")
+    raise NotImplementedError, "#{self.class} name should be correctable '#{__method__}'"
   end
 end
 
@@ -10,6 +10,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    super()
   end
 
   def of_age?
@@ -26,7 +27,7 @@ class Person < Nameable
   end
 
   def correct_name
-    return @name if @name.match? (/^[a-zA-Z]+$/i)
+    return @name if @name.match?(/^[a-zA-Z]+$/i)
 
     @nameable.correct_name
   end
@@ -37,6 +38,7 @@ class Decorator < Nameable
 
   def initialize(nameable)
     @nameable = nameable
+    super()
   end
 
   def correct_name

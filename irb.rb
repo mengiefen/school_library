@@ -12,7 +12,8 @@ p teacher.name
 p teacher.age
 p teacher.can_use_services?
 
-student1 = Student.new('Tom', 21, true, 'Sociology')
+student1 = Student.new('Tom', 21, parent_permission: true, 'Sociology')
+
 p '===========Student-1==========='
 p student1.classroom
 p student1.name
@@ -20,7 +21,7 @@ p student1.age
 p student1.can_use_services?
 p student1.play_hooky
 p '=========== Student-2==========='
-student2 = Student.new('David', 17, false, 'Biology')
+student2 = Student.new('David', 17, parent_permission: false, 'Biology')
 
 p student2.classroom
 p student2.name

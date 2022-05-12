@@ -28,9 +28,16 @@ To get a local copy up and running follow these simple example steps.
 - Open terminal
 - Change to the desired directory then run the following:
 
-  - Run `git clone git@github.com:mengiefen/leaderboard-list-app.git`
+  - Run `git clone git@github.com:mengiefen/school_library.git`
 
   - cd repo-name/ 
+## Running the Application
+>**Steps to excute the app locally**
+
+    - `main.rb` is the entry point for the app
+    -  On root directory run `chmod 755 main.rb`
+    -  Then run `./main.rb` 
+    -  Follow the interactive console instructions
   
 ## Authors
 

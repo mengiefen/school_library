@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require './person'
 require './rental'
 require './book'
@@ -153,12 +151,3 @@ class App
     choose_option(option)
   end
 end
-
-###################################################
-
-def main
-  app = App.new
-  app.run
-end
-
-main

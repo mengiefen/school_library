@@ -6,7 +6,7 @@ require './teacher'
 require './classroom'
 
 class App
-  attr_reader :people, :books, :rentals
+  attr_reader :people, :rentals
 
   def initialize
     @people = []

@@ -1,18 +1,15 @@
 require './person'
-require './rental'
 require './student'
 require './teacher'
-require './classroom'
 
-class App
-  attr_reader :people, :rentals
+class PeopleOptions
+  attr_reader :people
 
   def initialize
     @people = []
-    @rentals = []
   end
 
-  # List all people.
+   # List all people.
   def list_all_people
     @people.each_with_index do |person, index|
       puts "#{index + 1})  [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
@@ -58,34 +55,4 @@ class App
       puts 'Please enter valid input'
     end
   end
-
-  # # Create a rental.
-  # def create_rental
-  #   puts 'Select a book from the following list by serial number'
-  #   puts ''
-  #   list_all_books
-  #   selected_book = @books[gets.chomp.to_i - 1]
-  #   puts 'Select a person from the following list by serial number'
-  #   puts ''
-  #   list_all_people
-  #   selected_person = @people[gets.chomp.to_i - 1]
-  #   print 'Date: '
-  #   date = gets.chomp
-  #   @rentals << selected_person.add_rental(date, selected_book)
-  # end
-
-  # # List all rentals by ID
-  # def list_all_rentals
-  #   print 'ID of person: '
-  #   id = gets.chomp.to_i
-  #   person_details = @people.find { |person| person.id == id }
-  #   if person_details
-  #     puts 'Rentals'
-  #     person_details.rental.each_with_index do |rental, index|
-  #       puts "#{index + 1}) #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
-  #     end
-  #   else
-  #     puts 'No rentals to show'
-  #   end
-  # end
 end

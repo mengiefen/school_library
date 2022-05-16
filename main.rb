@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
-require './app'
-require './new_book'
-
+require './books_options'
+require './rental_options'
+require './people_options'
 class Main
   def initialize
-    @app = App.new
     @book = BooksOption.new
+    @rental = RentalOption.new
+    @people = PeopleOptions.new
   end
 
   def print_options
@@ -30,22 +31,22 @@ class Main
     when '1'
       @book.list_all_books
     when '2'
-      @app.list_all_people
+      @people.list_all_people
     when '3'
-      @app.create_person
+      @people.create_person
     when '4'
       @book.create_book
     when '5'
-      @app.create_rental
+      @rental.create_rental(@book.books, @people.people)
     when '6'
-      @app.list_all_rentals
+      @rental.list_all_rentals(@people.people)
     end
     print_options
   end
 
   def run
     print_options
-    @app.choose_option(option)
+    choose_option(option)
   end
 end
 

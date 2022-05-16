@@ -9,8 +9,8 @@ class RentalOption
     @rentals = []
   end
 
-   # Create a rental.
-   def create_rental(books, people)
+  # Create a rental.
+  def create_rental(books, people)
     puts 'Select a book from the following list by serial number'
     puts ''
     books.each_with_index do |book, index|

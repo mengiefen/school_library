@@ -9,7 +9,7 @@ class PeopleOptions
     @people = []
   end
 
-   # List all people.
+  # List all people.
   def list_all_people
     @people.each_with_index do |person, index|
       puts "#{index + 1})  [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"

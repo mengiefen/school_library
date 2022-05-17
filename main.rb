@@ -40,6 +40,8 @@ class Main
       @book.save_data
     when '5'
       @rental.create_rental(@book.books, @people.people)
+      @book.save_data
+      @people.save_people
     when '6'
       @rental.list_all_rentals(@people.people)
     end

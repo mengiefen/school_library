@@ -1,1 +1,1 @@
-[{"date":"2022/03/03","book":{"title":"book","author":"a"},"person":{"id":198,"name":"help","age":113}}]
+[{"json_class":"Rental","date":null,"book":{"json_class":"Book","title":"Engineering","author":"Sam","rentals":null},"person":{"json_class":"Student","id":546,"age":"12","name":"Sam","parent_permission":false,"classroom":"Bio"}}]

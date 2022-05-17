@@ -12,14 +12,25 @@ class Teacher < Person
     true
   end
 
-  def to_json(*_args)
-    JSON.dump({
-                classname: self.class,
-                id: @id,
-                name: @name,
-                specialization: @specialization
-              })
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      id: @id,
+      age: @age,
+      name: @name,
+      parent_permission: @parent_permission,
+      specialization: @specialization
+    }.to_json(*args)
   end
+
+  # def to_json(*_args)
+  #   JSON.dump({
+  #               classname: self.class,
+  #               id: @id,
+  #               name: @name,
+  #               specialization: @specialization
+  #             })
+  # end
 
   def self.from_json(data)
     new(data['id'], data['name'], data['specialization'])

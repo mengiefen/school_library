@@ -1,1 +1,1 @@
-[{"title":"book","author":"a"},{"title":"book2","author":"a2"},{"title":"book3","author":"a3"},{"title":"test","author":"teest"}]
+[{"json_class":"Book","title":"Engineering","author":"Sam","rentals":null}]

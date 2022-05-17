@@ -27,7 +27,7 @@ class RentalOption
     print 'Date: '
     date = gets.chomp
     @rentals << selected_person.add_rental(date, selected_book)
-    save_rental
+    save_rental   
     puts 'Rental Created successfully'
   end
 

@@ -27,7 +27,7 @@ class BooksOption
   end
 
   def load_data
-    data = JSON.parse File.read './book.json' if  File.exist? './book.json'
+    data = JSON.parse File.read './book.json' if File.exist? './book.json'
     data.each do |book|
       @books.push(Book.from_json(book))
     end

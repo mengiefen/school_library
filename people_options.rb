@@ -8,8 +8,7 @@ class PeopleOptions
 
   def initialize
     @people = []
-    load_student
-    load_teacher
+    load_people
   end
 
   # List all people.
@@ -52,36 +51,29 @@ class PeopleOptions
     case person_role
     when '1'
       @people << create_student
-      save_student
+      save_people
     when '2'
       @people << create_teacher
-      save_teacher
+      save_people
     else
       puts 'Please enter valid input'
     end
   end
 
-  def load_teacher
-    data = JSON.parse File.read './teacher.json' if File.exist? './teacher.json'
-    data.each do |teacher|
-      @people.push(Teacher.from_json(teacher))
-    end
-  end
-
-  def save_teacher
+  def save_people
     people_json = "[#{@people.map(&:to_json).join(',')}]"
-    File.write('teacher.json', people_json)
+    File.write('people.json', people_json)
   end
 
-  def load_student
-    data = JSON.parse File.read './student.json' if File.exist? './student.json'
-    data.each do |student|
-      @people.push(Student.from_json(student))
+  def load_people
+    data = JSON.parse File.read './people.json' if File.exist? './people.json'
+    data.each do |person|
+      if person.is_a?(Student)
+        @people.push(Student.from_json(person))
+      end
+      if person.is_a?(Teacher)
+        @people.push(Teacher.from_json(person))
+      end
     end
-  end
-
-  def save_student
-    people_json = "[#{@people.map(&:to_json).join(',')}]"
-    File.write('student.json', people_json)
   end
 end

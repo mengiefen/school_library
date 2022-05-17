@@ -55,4 +55,27 @@ class PeopleOptions
       puts 'Please enter valid input'
     end
   end
+
+  def save_person
+    File.write("people.json", @people, mode: "a")
+  end
+
+  def people_to_json
+    data = []
+    ruby = JSON.parse(source)
+    @people.each do |n|
+      data = '{"id": "foo", "name": 1.0, "age": true, "parental permision": true, "rental": false, "classroom": null}'
+    end
+    puts 'finish'
+    # [{id:1, name: Some, age: age, classroom: classrom}]
+    # people
+    # json = JSON.generate(@people)
+  end
+
+  def to_json(*people)
+    {
+      JSON.create_id  => self.class.name,
+      'a'             => [ bar, baz ]
+    }.to_json(*args)
+  end
 end

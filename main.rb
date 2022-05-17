@@ -2,6 +2,7 @@
 require './books_options'
 require './rental_options'
 require './people_options'
+
 class Main
   def initialize
     @book = BooksOption.new
@@ -34,6 +35,7 @@ class Main
       @people.list_all_people
     when '3'
       @people.create_person
+      @people.people_to_json
     when '4'
       @book.create_book
     when '5'
@@ -51,3 +53,4 @@ class Main
 end
 
 Main.new.run
+

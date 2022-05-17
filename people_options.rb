@@ -1,12 +1,14 @@
 require './person'
 require './student'
 require './teacher'
+require 'json'
 
 class PeopleOptions
   attr_reader :people
 
   def initialize
     @people = []
+    load_student
   end
 
   # List all people.
@@ -49,6 +51,7 @@ class PeopleOptions
     case person_role
     when '1'
       @people << create_student
+      save_student
     when '2'
       @people << create_teacher
     else
@@ -56,26 +59,15 @@ class PeopleOptions
     end
   end
 
-  def save_person
-    File.write("people.json", @people, mode: "a")
-  end
-
-  def people_to_json
-    data = []
-    ruby = JSON.parse(source)
-    @people.each do |n|
-      data = '{"id": "foo", "name": 1.0, "age": true, "parental permision": true, "rental": false, "classroom": null}'
+  def load_student
+    data = JSON.parse File.read './student.json' if  File.exist? './student.json'
+    data.each do |student|
+      @people.push(Student.from_json(student))
     end
-    puts 'finish'
-    # [{id:1, name: Some, age: age, classroom: classrom}]
-    # people
-    # json = JSON.generate(@people)
   end
 
-  def to_json(*people)
-    {
-      JSON.create_id  => self.class.name,
-      'a'             => [ bar, baz ]
-    }.to_json(*args)
+  def save_student
+    people_json = "[#{@people.map(&:to_json).join(',')}]"
+    File.write('student.json', people_json)
   end
 end

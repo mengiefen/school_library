@@ -35,9 +35,9 @@ class Main
       @people.list_all_people
     when '3'
       @people.create_person
-      @people.people_to_json
     when '4'
       @book.create_book
+      @book.save_data
     when '5'
       @rental.create_rental(@book.books, @people.people)
     when '6'

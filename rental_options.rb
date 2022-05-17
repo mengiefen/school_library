@@ -7,6 +7,7 @@ class RentalOption
 
   def initialize
     @rentals = []
+    load_rental
   end
 
   # Create a rental.
@@ -26,6 +27,7 @@ class RentalOption
     print 'Date: '
     date = gets.chomp
     @rentals << selected_person.add_rental(date, selected_book)
+    save_rental
     puts 'Rental Created successfully'
   end
 
@@ -41,6 +43,19 @@ class RentalOption
       end
     else
       puts 'No rentals to show'
+    end
+  end
+
+  def save_rental
+    rental_json = "[#{@rentals.map(&:to_json).join(',')}]"
+    File.write('rental.json', rental_json)
+  end
+
+  def load_rental
+    data = JSON.parse File.read './rental.json' if File.exist? './rental.json'
+    puts data
+    data.each do |rental|
+      @rentals.push(Rental.from_json(rental))
     end
   end
 end

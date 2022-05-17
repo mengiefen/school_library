@@ -29,6 +29,6 @@ class Student < Person
   end
 
   def self.from_json(data)
-    new(data['classname'], data['id'], data['name'], data['parent_permission'], data['classroom'])
+    new(data['id'], data['name'], data['parent_permission'], data['classroom'])
   end
 end

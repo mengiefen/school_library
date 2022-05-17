@@ -68,8 +68,8 @@ class PeopleOptions
   def load_people
     data = JSON.parse File.read './people.json' if File.exist? './people.json'
     data.each do |person|
-      @people.push(Student.from_json(person)) if person.classname == 'Student'
-      @people.push(Teacher.from_json(person)) if person.classname == 'Teacher'
+      @people.push(Student.from_json(person)) if person['classname'] == 'Student'
+      @people.push(Teacher.from_json(person)) if person['classname'] == 'Teacher'
     end
   end
 end

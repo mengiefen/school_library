@@ -23,7 +23,7 @@ class Student < Person
                 id: @id,
                 name: @name,
                 parent_permission: @parent_permission,
-                classroom: @classroom,
+                classroom: @classroom
               })
   end
 

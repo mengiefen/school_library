@@ -14,6 +14,7 @@ class Teacher < Person
 
   def to_json(*_args)
     JSON.dump({
+                classname: self.class,
                 id: @id,
                 name: @name,
                 specialization: @specialization
@@ -21,6 +22,6 @@ class Teacher < Person
   end
 
   def self.from_json(data)
-    new(data['id'], data['name'], data['specialization'])
+    new(data['classname'], data['id'], data['name'], data['specialization'])
   end
 end

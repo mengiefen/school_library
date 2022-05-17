@@ -20,6 +20,7 @@ class Student < Person
 
   def to_json(*_args)
     JSON.dump({
+                classname: self.class,
                 id: @id,
                 name: @name,
                 parent_permission: @parent_permission,
@@ -28,6 +29,6 @@ class Student < Person
   end
 
   def self.from_json(data)
-    new(data['id'], data['name'], data['parent_permission'], data['classroom'])
+    new(data['classname'], data['id'], data['name'], data['parent_permission'], data['classroom'])
   end
 end

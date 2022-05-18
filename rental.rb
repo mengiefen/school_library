@@ -19,7 +19,6 @@ class Rental
       date: @date,
       person: @person,
       book: @book
-      
     }.to_json(*args)
   end
 

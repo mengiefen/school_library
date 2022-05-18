@@ -5,5 +5,12 @@
       "JavaScript",
       "Menge"
     ]
+  },
+  {
+    "json_class": "Book",
+    "data": [
+      "Ruby",
+      "Sam"
+    ]
   }
 ]

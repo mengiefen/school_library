@@ -6,7 +6,7 @@ class App
   end
 
   # List all books
-  def list_all_books  
+  def list_all_books
     @io.books.each_with_index do |book, index|
       puts "#{index + 1})  Title: #{book.title}, Author: #{book.author}"
     end
@@ -19,7 +19,6 @@ class App
     print 'Author: '
     author = gets.chomp
     @io.add_book(title, author)
-    @io.save_data
     puts 'Book created successfully!'
   end
 
@@ -61,10 +60,8 @@ class App
     case person_role
     when '1'
       create_student
-      @io.save_data
     when '2'
       create_teacher
-      @io.save_data
     else
       puts 'Please enter valid input'
     end
@@ -88,7 +85,6 @@ class App
     date = gets.chomp
     @io.add_rental(date, selected_person, selected_book)
     puts 'Rental Created successfully'
-    @io.save_data
   end
 
   # List all rentals by ID
@@ -108,5 +104,9 @@ class App
       end
 
     end
+  end
+
+  def save_all
+    @io.save_data
   end
 end

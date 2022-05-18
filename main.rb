@@ -18,7 +18,11 @@ class Main
     puts '6  →  List all rentals for a given person id'
     puts 'q  →  Quit'
     operation = gets.chomp
-    exit if operation == 'q'
+    if operation == 'q'
+      @app.save_all
+      puts 'Thank you for using school library app!!'.upcase
+      exit
+    end
     choose_option(operation)
   end
 

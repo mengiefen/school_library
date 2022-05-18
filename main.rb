@@ -1,12 +1,8 @@
 #!/usr/bin/env ruby
-require './books_options'
-require './rental_options'
-require './people_options'
+require './app'
 class Main
   def initialize
-    @book = BooksOption.new
-    @rental = RentalOption.new
-    @people = PeopleOptions.new
+    @app = App.new
   end
 
   def print_options
@@ -29,17 +25,17 @@ class Main
   def choose_option(operation)
     case operation
     when '1'
-      @book.list_all_books
+      @app.list_all_books
     when '2'
-      @people.list_all_people
+      @app.list_all_people
     when '3'
-      @people.create_person
+      @app.create_person
     when '4'
-      @book.create_book
+      @app.create_book
     when '5'
-      @rental.create_rental(@book.books, @people.people)
+      @app.create_rental
     when '6'
-      @rental.list_all_rentals(@people.people)
+      @app.list_all_rentals
     end
     print_options
   end

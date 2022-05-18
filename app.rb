@@ -1,22 +1,13 @@
-require './book'
-require './student'
-require './teacher'
-require './rental'
 require './io_handler'
 
 class App
-  attr_reader :books, :people, :rentals
-
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
-    @IO = IoHandler.new
+    @io = IoHandler.new
   end
 
   # List all books
-  def list_all_books
-    @books.each_with_index do |book, index|
+  def list_all_books  
+    @io.books.each_with_index do |book, index|
       puts "#{index + 1})  Title: #{book.title}, Author: #{book.author}"
     end
   end
@@ -27,14 +18,14 @@ class App
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    @books << @IO.add_book(title, author)
-    @IO.save_data
+    @io.add_book(title, author)
+    @io.save_data
     puts 'Book created successfully!'
   end
 
-   # List all people.
-   def list_all_people
-    @people.each_with_index do |person, index|
+  # List all people.
+  def list_all_people
+    @io.people.each_with_index do |person, index|
       puts "#{index + 1})  [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
@@ -49,9 +40,8 @@ class App
     parent_permission = true && gets.chomp.downcase == 'y'
     print 'Classroom: '
     classroom = gets.chomp
-    person = @IO.add_student(age, name, parent_permission, classroom)
+    @io.add_student(age, name, parent_permission, classroom)
     puts 'Person created successfuly'
-    person
   end
 
   def create_teacher
@@ -61,9 +51,8 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    person = @IO.add_teacher(age, name, specialization)
+    @io.add_teacher(age, name, specialization)
     puts 'Person created successfuly'
-    person
   end
 
   def create_person
@@ -71,11 +60,11 @@ class App
     person_role = gets.chomp
     case person_role
     when '1'
-      @people << create_student
-      @IO.save_data
+      create_student
+      @io.save_data
     when '2'
-      @people << create_teacher
-      @IO.save_data
+      create_teacher
+      @io.save_data
     else
       puts 'Please enter valid input'
     end
@@ -85,35 +74,39 @@ class App
   def create_rental
     puts 'Select a book from the following list by serial number'
     puts ''
-    @books.each_with_index do |book, index|
+    @io.books.each_with_index do |book, index|
       puts "#{index + 1})  Title: #{book.title}, Author: #{book.author}"
     end
-    selected_book = @books[gets.chomp.to_i - 1]
+    selected_book = @io.books[gets.chomp.to_i - 1]
     puts 'Select a person from the following list by serial number'
     puts ''
-    @people.each_with_index do |person, index|
-      puts "#{index + 1})  [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    @io.people.each_with_index do |person, index|
+      puts "#{index + 1})  [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.id}"
     end
-    selected_person = @people[gets.chomp.to_i - 1]
+    selected_person = @io.people[gets.chomp.to_i - 1]
     print 'Date: '
     date = gets.chomp
-    @rentals << @IO.add_rental(date, selected_person, selected_book)
+    @io.add_rental(date, selected_person, selected_book)
     puts 'Rental Created successfully'
-    @IO.save_data
+    @io.save_data
   end
 
-   # List all rentals by ID
-   def list_all_rentals()
+  # List all rentals by ID
+  def list_all_rentals()
     print 'ID of person: '
     id = gets.chomp.to_i
-    person_details = @people.find { |person| person.id == id }
-    if person_details
+
+    rental_details = @io.rentals.select { |rental| rental.person.id == id }
+
+    if rental_details.empty?
+      puts 'No rentals to show'
+
+    else
       puts 'Rentals'
-      person_details.rental.each_with_index do |rental, index|
+      rental_details.each_with_index do |rental, index|
         puts "#{index + 1}) #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
       end
-    else
-      puts 'No rentals to show'
+
     end
   end
 end

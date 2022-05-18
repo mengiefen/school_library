@@ -1,3 +1,9 @@
 [
-  "#<Book:0x00000178c0b36480>"
+  {
+    "json_class": "Book",
+    "data": [
+      "JavaScript",
+      "Menge"
+    ]
+  }
 ]

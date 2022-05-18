@@ -1,3 +1,9 @@
 [
-  "#<Student:0x000002b75f332340>"
+  {
+    "json_class": "Teacher",
+    "id": 354,
+    "age": "12",
+    "name": "sadas",
+    "specialization": "asdas"
+  }
 ]

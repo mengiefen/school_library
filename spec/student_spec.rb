@@ -1,6 +1,5 @@
 require '../student'
 
-
 describe Student do
   before :each do
     @student = Student.new(12, 'babi', false, 'Biology')

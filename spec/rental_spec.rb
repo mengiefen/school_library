@@ -3,7 +3,6 @@ require '../teacher'
 require '../rental'
 require '../person'
 
-
 describe Rental do
   before :each do
     @student = Student.new(12, 'babi', false, 'Biology')

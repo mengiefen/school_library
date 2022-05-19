@@ -4,7 +4,6 @@ require '../person_decorator'
 require '../trimmer_decorator'
 require '../capitalize_decorator'
 
-
 describe 'Person Name Decorator' do
   before :each do
     @decorator = PersonDecorator.new('mengistu')

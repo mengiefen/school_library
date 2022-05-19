@@ -1,0 +1,16 @@
+[
+  {
+    "json_class": "Teacher",
+    "id": 553,
+    "age": "12",
+    "name": "sadas",
+    "specialization": "asdas"
+  },
+  {
+    "json_class": "Teacher",
+    "id": 435,
+    "age": "34",
+    "name": "m",
+    "specialization": "dsd"
+  }
+]

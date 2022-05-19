@@ -1,4 +1,4 @@
-require 'spec_helper'
+require '../teacher'
 
 describe Teacher do
   before :each do

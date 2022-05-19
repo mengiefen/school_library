@@ -1,4 +1,4 @@
-require 'spec_helper'
+require '../book'
 
 describe Book do
   before :each do

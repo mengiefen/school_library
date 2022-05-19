@@ -1,4 +1,4 @@
-require 'spec_helper'
+require '../person'
 
 describe Person do
   before :each do

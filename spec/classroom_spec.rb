@@ -1,4 +1,4 @@
-require '../classroom'
+require './classroom'
 
 describe Classroom do
   before :each do

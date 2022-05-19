@@ -1,4 +1,4 @@
-require '../student'
+require './student'
 
 describe Student do
   before :each do

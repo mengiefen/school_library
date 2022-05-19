@@ -1,4 +1,4 @@
-require '../person'
+require './person'
 
 describe Person do
   before :each do

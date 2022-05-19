@@ -1,7 +1,7 @@
-require '../student'
-require '../teacher'
-require '../rental'
-require '../person'
+require './student'
+require './teacher'
+require './rental'
+require './person'
 
 describe Rental do
   before :each do

@@ -1,7 +1,4 @@
-require '../rental'
-require '../student'
-require '../teacher'
-require '../book'
+require 'spec_helper'
 
 describe Rental do
   before :each do

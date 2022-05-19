@@ -1,6 +1,4 @@
-require '../capitalize_decorator'
-require '../trimmer_decorator'
-require '../student'
+require 'spec_helper'
 
 describe 'Person Name Decorator' do
   before :each do

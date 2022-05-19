@@ -1,5 +1,4 @@
-require '../student'
-require '../person'
+require 'spec_helper'
 
 describe Student do
   before :each do

@@ -1,13 +1,14 @@
 [
   {
     "json_class": "Rental",
-    "date": "2022/05/05",
+    "date": "2022",
     "person": {
-      "json_class": "Teacher",
-      "id": 628,
+      "json_class": "Student",
+      "id": 989,
       "age": "12",
-      "name": "sadas",
-      "specialization": "asdas"
+      "name": "Babu",
+      "parent_permission": "Grade -5",
+      "classroom": 329
     },
     "book": {
       "json_class": "Book",
@@ -19,13 +20,13 @@
   },
   {
     "json_class": "Rental",
-    "date": "sasas",
+    "date": "2021",
     "person": {
       "json_class": "Teacher",
-      "id": 176,
-      "age": "12",
-      "name": "sadas",
-      "specialization": "asdas"
+      "id": 505,
+      "age": "45",
+      "name": "Tesfaye",
+      "specialization": "Amharic"
     },
     "book": {
       "json_class": "Book",

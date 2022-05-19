@@ -3,8 +3,8 @@ require './person'
 class Teacher < Person
   attr_reader :specialization
 
-  def initialize(age, name, specialization)
-    super(age, name)
+  def initialize(age, name, specialization, id = nil)
+    super(age, name, id, parent_permission: true)
     @specialization = specialization
   end
 
@@ -38,6 +38,6 @@ class Teacher < Person
 
   def self.json_create(object)
     # age, name, specialization = object
-    new(object['age'], object['name'], object['specialization'])
+    new(object['age'], object['name'], object['specialization'], object['id'])
   end
 end

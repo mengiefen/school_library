@@ -3,8 +3,8 @@ require './person'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(age, name, parent_permission, classroom)
-    super(age, name, parent_permission: parent_permission)
+  def initialize(age, name, parent_permission, classroom, id = nil)
+    super(age, name, id, parent_permission: parent_permission)
 
     @classroom = classroom
   end
@@ -45,7 +45,6 @@ class Student < Person
   end
 
   def self.json_create(object)
-    age, classroom, name, parent_permission = object['data']
-    Student.new(age, name, parent_permission, classroom)
+    Student.new(object['age'], object['name'], object['parent_permission'], object['classroom'], object['id'])
   end
 end

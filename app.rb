@@ -40,7 +40,7 @@ class App
     print 'Classroom: '
     classroom = gets.chomp
     @io.add_student(age, name, parent_permission, classroom)
-    puts 'Person created successfuly'
+    puts 'Student created successfuly'
   end
 
   def create_teacher
@@ -51,7 +51,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
     @io.add_teacher(age, name, specialization)
-    puts 'Person created successfuly'
+    puts 'Teacher created successfuly'
   end
 
   def create_person

@@ -47,6 +47,12 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@MengistuFentaw](https://twitter.com/MengistuFentaw)
 - Linkedin: [@mengefen](https://www.linkedin.com/in/mengefen/)
 
+👤 **Hector Torres**
+
+- GitHub: [@githubhandle](https://github.com/HectorTorresE)
+- Twitter: [@twitterhandle](https://twitter.com/HectorT00406915)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+
 ## Contributers
 
 
